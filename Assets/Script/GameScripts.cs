@@ -24,12 +24,32 @@ public class GameScripts : MonoBehaviour {
             Debug.Log("タップされました");
 
         }
+
+        //メインカメラ上のマウスカーソルのある位置からRayを飛ばす
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+
+
+        //Rayの長さ
+        float maxDistance = 10;
+
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance);
+
+
+        //    RaycastHit2D hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
+
+        //なにかと衝突した時だけそのオブジェクトの名前をログに出す
+        if (hit.collider)
+        {
+            Debug.Log(hit.collider.gameObject.name);
+        }
     }
 
 
 
     bool OnTouchDown()
     {
+
         
         // タッチされているとき
         if (0 < Input.touchCount)
@@ -37,7 +57,7 @@ public class GameScripts : MonoBehaviour {
             // タッチされている指の数だけ処理
             for (int i = 0; i < Input.touchCount; i++)
             {
-                Debug.Log(Input.touchCount);
+                //Debug.Log(Input.touchCount);
                 // タッチ情報をコピー
                 Touch t = Input.GetTouch(i);
                 // タッチしたときかどうか
@@ -47,13 +67,13 @@ public class GameScripts : MonoBehaviour {
                     Vector3 pos = Camera.main.ScreenToWorldPoint(t.position);
                     Vector3 cons = new Vector3(pos.x,pos.y,0);
                     Instantiate(test,cons,Quaternion.identity);
-                    Debug.Log(t.position);
+                    //Debug.Log(t.position);
                     //タッチした位置からRayを飛ばす
                     Ray ray = Camera.main.ScreenPointToRay(t.position);
                     RaycastHit hit = new RaycastHit();
                     if (Physics.Raycast(ray, out hit))
                     {
-                        Debug.Log(hit.transform.position);
+                        //Debug.Log(hit.transform.position);
                         //Rayを飛ばしてあたったオブジェクトが自分自身だったら
                         if (hit.collider.gameObject == this.gameObject)
                         {
