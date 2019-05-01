@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameScripts : MonoBehaviour {
 
     public GameObject[] toge;
+    public GameObject[] tap;
     public GameObject test;
 
 
@@ -21,6 +22,7 @@ public class GameScripts : MonoBehaviour {
     {
         if (OnTouchDown())
         {
+           
             Debug.Log("タップされました");
 
         }
@@ -66,20 +68,23 @@ public class GameScripts : MonoBehaviour {
 
                     Vector3 pos = Camera.main.ScreenToWorldPoint(t.position);
                     Vector3 cons = new Vector3(pos.x,pos.y,0);
-                    Instantiate(test,cons,Quaternion.identity);
+                    
+                    
+                    
+                    //Instantiate(test,cons,Quaternion.identity);
                     //Debug.Log(t.position);
                     //タッチした位置からRayを飛ばす
-                    Ray ray = Camera.main.ScreenPointToRay(t.position);
-                    RaycastHit hit = new RaycastHit();
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        //Debug.Log(hit.transform.position);
-                        //Rayを飛ばしてあたったオブジェクトが自分自身だったら
-                        if (hit.collider.gameObject == this.gameObject)
-                        {
-                            return true;
-                        }
-                    }
+                    //Ray ray = Camera.main.ScreenPointToRay(t.position);
+                    //RaycastHit hit = new RaycastHit();
+                    //if (Physics.Raycast(ray, out hit))
+                    //{
+                    //    //Debug.Log(hit.transform.position);
+                    //    //Rayを飛ばしてあたったオブジェクトが自分自身だったら
+                    //    if (hit.collider.gameObject == this.gameObject)
+                    //    {
+                    //        return true;
+                    //    }
+                    //}
                 }
             }
         }
