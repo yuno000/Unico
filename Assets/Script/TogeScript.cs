@@ -4,10 +4,15 @@ using System;
 using UnityEngine;
 using TouchScript.Gestures;
 
+/*とげの伸び縮み
+ */
+
+
 public class TogeScript : MonoBehaviour {
     public GameObject[] toge;
     public TapGesture tapGesture;
-    public float timer; 
+    public int frame;
+    private bool nobi = false;
 
     //タップされると伸びる
     private void OnEnable()
@@ -23,31 +28,36 @@ public class TogeScript : MonoBehaviour {
 
     private void OnTapped(object sender, EventArgs e)
     {
-        Debug.Log("タップされた");
-        timer = 0;
-        toge[0].transform.localScale += new Vector3(0, 0.5f);
+        if (nobi == false)
+        {
+            Debug.Log("タップされた");
+            toge[0].transform.localScale += new Vector3(0, 1.5f);
+            nobi = true;
+            frame = 0;
+        }
 
-       
+
     }
 
 
 
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-        timer = Time.deltaTime;
-        if (timer > 0.5f && toge[0].transform.localScale.y > 0.8f )
-        {
-            toge[0].transform.localScale -= new Vector3(0, 0.5f);
-            Debug.Log(timer);
-        }
-
+    void Start() {
 
     }
+
+    // Update is called once per frame
+    void Update() {
+
+        frame++;
+        if (frame > 1 / Time.deltaTime && nobi == true)//とげの伸びが戻る
+        {
+            toge[0].transform.localScale -= new Vector3(0, 1.5f);
+            nobi = false;
+        }
+
+    }
+
+    
 }

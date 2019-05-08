@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class CameraLayer : MonoBehaviour {
+public class StartScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +15,9 @@ public class CameraLayer : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void StartButton()
+    {
+        SceneManager.LoadScene("Main");
+    }
 }

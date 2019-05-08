@@ -2,23 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+/*敵（魚）のスクリプト
+ * 魚のHP
+ * 魚のRush:3秒放置したら（0,0,0）へ
+ * 
+ */
 
 public class OsakanaScript : MonoBehaviour {
 
     public int osakanaHP = 1;
-    public int osakanaCount;
-    public Text osakanaCountLabel;
+    private int timer;
     public GameObject osakana;
+    public int frame;
 
 	// Use this for initialization
 	void Start () {
+        frame = 0;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
-		
+       frame++;
+       if(frame > 3 / Time.deltaTime)
+        {
+            osakanaRush();
+        }
 	}
 
     void Damageosakana()
@@ -27,16 +38,13 @@ public class OsakanaScript : MonoBehaviour {
         if(osakanaHP <= 0)
         {
             Destroy(osakana);
-            osakanaCount++;
+            gameObject.GetComponent<GameManager>().score += 100;//sakanaを倒すとスコア+100 
 
         }
     }
 
     void osakanaRush()
     {
-       // if ()
-        {
-
-        }
+        
     }
 }
