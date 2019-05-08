@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 /*敵（魚）のスクリプト
  * 魚のHP
+ * 魚とげにあたったらきえる
  * 魚のRush:3秒放置したら（0,0,0）へ
  * 
  */
@@ -31,6 +32,14 @@ public class OsakanaScript : MonoBehaviour {
             osakanaRush();
         }
 	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if(collision.gameObject.tag == "toge")
+        {
+            Damageosakana();
+        }
+    }
 
     void Damageosakana()
     {
@@ -42,6 +51,8 @@ public class OsakanaScript : MonoBehaviour {
 
         }
     }
+
+
 
     void osakanaRush()
     {
