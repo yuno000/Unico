@@ -9,19 +9,24 @@ using UnityEngine.SceneManagement;
  *セーブとロード 
  */
 
-public class GameManager : MonoBehaviour {
+public class GameManagement : MonoBehaviour {
     public Text dayLabel;
     public int  day;
     private int frame;
     public int score;
     public Text scoreLabel;
+    private bool onetime;
+
     
 
 	// Use this for initialization
 	void Start () {
-        day = 1;
-        
-	}
+        day = PlayerPrefs.GetInt("Day", day);
+        if (day == 0)
+        {
+            day = 1;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -34,11 +39,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-
     private void OnDestroy()
     {
-        PlayerPrefs.SetFloat("Score", score);
-        PlayerPrefs.SetFloat("Day", day);
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.SetInt("Day", day);
         PlayerPrefs.Save();
     }
+
+
 }

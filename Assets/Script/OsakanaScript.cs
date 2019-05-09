@@ -16,6 +16,7 @@ public class OsakanaScript : MonoBehaviour {
     public int osakanaHP = 1;
     private int timer;
     public GameObject osakana;
+    public GameObject gameManagement;
     public int frame;
 
 	// Use this for initialization
@@ -35,7 +36,7 @@ public class OsakanaScript : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.name);
-        if(collision.gameObject.tag == "toge")
+        if (collision.gameObject.tag == "toge")
         {
             Damageosakana();
         }
@@ -47,7 +48,7 @@ public class OsakanaScript : MonoBehaviour {
         if(osakanaHP <= 0)
         {
             Destroy(osakana);
-            gameObject.GetComponent<GameManager>().score += 100;//sakanaを倒すとスコア+100 
+            gameManagement.GetComponent<GameManagement>().score += 100;//sakanaを倒すとスコア+100 
 
         }
     }

@@ -17,41 +17,40 @@ public class UniScript : MonoBehaviour {
     public int uniHP　= 5;
     int maxHP = 5;
     public Slider hpSlider;
+    //public PinnedTransformGesture transformGesture;
 
-    public PinnedTransformGesture transformGesture;
+    //private void OnEnable()
+    //{
+    //    transformGesture.TransformStarted += OnTransformStarted;
+    //    transformGesture.Transformed += OnTransformed;
+    //    transformGesture.TransformCompleted += OnTransformCompleted;
+    //}
 
-    private void OnEnable()
-    {
-        transformGesture.TransformStarted += OnTransformStarted;
-        transformGesture.Transformed += OnTransformed;
-        transformGesture.TransformCompleted += OnTransformCompleted;
-    }
+    //private void OnDisable()
+    //{
+    //    transformGesture.TransformStarted -= OnTransformStarted;
+    //    transformGesture.Transformed -= OnTransformed;
+    //    transformGesture.TransformCompleted -= OnTransformCompleted;
+    //}
 
-    private void OnDisable()
-    {
-        transformGesture.TransformStarted -= OnTransformStarted;
-        transformGesture.Transformed -= OnTransformed;
-        transformGesture.TransformCompleted -= OnTransformCompleted;
-    }
+    //private void OnTransformStarted(object sender, EventArgs e)
+    //{
+    //    Debug.Log("変形を開始した");
+    //}
 
-    private void OnTransformStarted(object sender, EventArgs e)
-    {
-        Debug.Log("変形を開始した");
-    }
+    //private void OnTransformed(object sender, EventArgs e)
+    //{
+    //    var g = transformGesture;
+    //    var sb = new StringBuilder();
+    //    sb.AppendLine("変形中");
+    //    sb.AppendLine("DeltaRotation: " + g.DeltaRotation);
+    //    Debug.Log(sb);
+    //}
 
-    private void OnTransformed(object sender, EventArgs e)
-    {
-        var g = transformGesture;
-        var sb = new StringBuilder();
-        sb.AppendLine("変形中");
-        sb.AppendLine("DeltaRotation: " + g.DeltaRotation);
-        Debug.Log(sb);
-    }
-
-    private void OnTransformCompleted(object sender, EventArgs e)
-    {
-        Debug.Log("変形を完了した");
-    }
+    //private void OnTransformCompleted(object sender, EventArgs e)
+    //{
+    //    Debug.Log("変形を完了した");
+    //}
 
 
 
