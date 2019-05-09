@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 /*日にちの管理
  * スコアの管理
  *セーブとロード 
+ * 魚のランダム生成
  */
 
 public class GameManagement : MonoBehaviour {
@@ -16,6 +17,7 @@ public class GameManagement : MonoBehaviour {
     public int score;
     public Text scoreLabel;
     private bool onetime;
+
 
     
 

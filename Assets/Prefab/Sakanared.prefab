@@ -240,7 +240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   osakanaHP: 1
   osakana: {fileID: 1665034700811344}
-  gameManagement: {fileID: 0}
+  gameManagement: {fileID: 1219017739127302, guid: e7d7330281daf2746b19d0a004101296,
+    type: 2}
   frame: 0
 --- !u!212 &212424871838196694
 SpriteRenderer:

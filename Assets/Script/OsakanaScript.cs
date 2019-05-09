@@ -17,10 +17,13 @@ public class OsakanaScript : MonoBehaviour {
     private int timer;
     public GameObject osakana;
     public GameObject gameManagement;
+    public GameObject uni;
     public int frame;
 
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
         frame = 0;
 		
 	}
@@ -57,6 +60,6 @@ public class OsakanaScript : MonoBehaviour {
 
     void osakanaRush()
     {
-        
+       
     }
 }
