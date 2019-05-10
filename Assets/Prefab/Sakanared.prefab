@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 60101301470803226}
   - component: {fileID: 114164556148565706}
   - component: {fileID: 50669073617973064}
+  - component: {fileID: 95740382898991098}
   m_Layer: 0
   m_Name: Sakanared
   m_TagString: Enemy
@@ -227,6 +228,23 @@ PolygonCollider2D:
       - {x: -0.81, y: -2.03}
       - {x: -0.53999996, y: -2.03}
       - {x: -0.39, y: -2.02}
+--- !u!95 &95740382898991098
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1665034700811344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114164556148565706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,6 +260,7 @@ MonoBehaviour:
   osakana: {fileID: 1665034700811344}
   gameManagement: {fileID: 1219017739127302, guid: e7d7330281daf2746b19d0a004101296,
     type: 2}
+  uni: {fileID: 0}
   frame: 0
 --- !u!212 &212424871838196694
 SpriteRenderer:
