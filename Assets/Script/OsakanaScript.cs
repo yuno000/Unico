@@ -19,6 +19,8 @@ public class OsakanaScript : MonoBehaviour {
     public GameObject osakana;
     public GameObject gameManagement;
     public GameObject uni;
+    public Vector2 muki;
+    public int speed;
     private float initiateposx;
     private float initiateposy;
     private int frame;
@@ -75,17 +77,18 @@ public class OsakanaScript : MonoBehaviour {
         Debug.Log(frame2);
             if (frame2 <= 2 / Time.deltaTime)//2秒左に動く
             {
-            transform.position -= new Vector3(0.05f, 0,0);
+            transform.position -= new Vector3(0.02f, 0,0);
               
             }else if(frame2 > 2/Time.deltaTime && frame2 <= 4 / Time.deltaTime)
             {
                 //transform.Rotate(new Vector2(0, 360);
-                transform.position += new Vector3(0.05f, 0, 0);
+                transform.position += new Vector3(0.02f, 0, 0);
             }
             else
             {
                 initiateposx += 0.05f;
-                transform.position -= new Vector3(0.05f, 0, 0);
+                transform.position -= new Vector3(0.02f, 0, 0);
+            frame2 = 0;
             }
         //}
         //else//右を向いているとき
@@ -98,6 +101,7 @@ public class OsakanaScript : MonoBehaviour {
 
     void OsakanaRush()
     {
-       
+        transform.position = Vector3.MoveTowards(transform.position, new Vector2(-0.25f,0.8f), speed * Time.deltaTime);
+
     }
 }
