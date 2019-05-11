@@ -5,11 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /*敵（魚）のスクリプト
- * 魚の動き2秒で往復
+ * △魚の動き2秒で往復
  * 魚のHP
  * 魚とげにあたったらきえる
- * 魚のRush:6秒放置したら（0,0,0）へ
- * 
+ * △魚のRush:6秒放置したら（0,0,0）へ
+ * ★魚の向き
  */
 
 public class OsakanaScript : MonoBehaviour {

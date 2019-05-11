@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - toge
+  - banrange
+  - range
   layers:
   - Default
   - TransparentFX
