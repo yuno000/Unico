@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 public class GameManagement : MonoBehaviour {
     public Text dayLabel;
     public int  day;
-    private int frame;
+    private int t;
     public int score;
     public Text scoreLabel;
     private bool onetime;
@@ -32,10 +32,12 @@ public class GameManagement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        t++;
         scoreLabel.text = "Score:" + score.ToString();
         dayLabel.text = "Day" + day.ToString();
+        Debug.Log(t);
 
-        if (frame > 60 / Time.deltaTime && GetComponent<UniScript>().uniHP > 0)
+        if (t > 10.0f && GetComponent<UniScript>().uniHP > 0)
         {
             SceneManager.LoadScene("DayChange");
         }

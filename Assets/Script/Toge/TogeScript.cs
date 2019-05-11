@@ -51,7 +51,7 @@ public class TogeScript : MonoBehaviour {
     void Update() {
 
         frame++;
-        if (frame > 1 / Time.deltaTime && nobi == true)//とげの伸びが戻る
+        if (frame > 0.5 / Time.deltaTime && nobi == true)//とげの伸びが戻る
         {
             toge[0].transform.localScale -= new Vector3(0, 1.5f);
             nobi = false;

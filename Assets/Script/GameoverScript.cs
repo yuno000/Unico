@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 /*スタートボタンを押すと
  * ゲームスタートシーンへの遷移
+ * 日数が０になる
  */
 
 public class GameoverScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        ;
 		
 	}
 	
