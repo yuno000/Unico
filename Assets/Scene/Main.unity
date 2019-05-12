@@ -1603,14 +1603,14 @@ RectTransform:
   m_GameObject: {fileID: 657412685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9112616, y: 1.9112618, z: 1.9112618}
+  m_LocalScale: {x: 1.2488785, y: 1.2488786, z: 1.2488786}
   m_Children: []
   m_Father: {fileID: 1448638142}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286.5, y: 120}
+  m_AnchoredPosition: {x: 234, y: 125}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657412687
@@ -1633,7 +1633,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_Font: {fileID: 12800000, guid: e423173afdece4d3fa49ed8e89391fce, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 1
@@ -1716,14 +1716,14 @@ RectTransform:
   m_GameObject: {fileID: 697326651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2718644, y: 1.2718638, z: 1.2718638}
+  m_LocalScale: {x: 0.69154555, y: 0.69154525, z: 0.69154525}
   m_Children: []
   m_Father: {fileID: 1448638142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 233.9, y: 103.8}
+  m_AnchoredPosition: {x: 190, y: 103.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &697326653
@@ -1746,7 +1746,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_Font: {fileID: 12800000, guid: e423173afdece4d3fa49ed8e89391fce, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 1
@@ -1905,6 +1905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 943550464}
   - component: {fileID: 943550465}
+  - component: {fileID: 943550466}
   m_Layer: 0
   m_Name: GameManagement
   m_TagString: Untagged
@@ -1941,6 +1942,22 @@ MonoBehaviour:
   score: 0
   scoreLabel: {fileID: 697326653}
   uni: {fileID: 1374079734}
+--- !u!114 &943550466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 943550463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccaaca4a05e52e346849be43d66e05fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  osakanakinds:
+  - {fileID: 1665034700811344, guid: b45d099687b926248a685eba200006bc, type: 2}
+  - {fileID: 1200644319874834, guid: 3ced1f44e310b7b4f8a975e3349bdac2, type: 2}
+  - {fileID: 1701237324131252, guid: de028e4c84534684e99d7b07460d5f0e, type: 2}
+  timer: 0
 --- !u!1001 &944458003
 Prefab:
   m_ObjectHideFlags: 0

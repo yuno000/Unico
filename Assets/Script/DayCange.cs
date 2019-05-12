@@ -8,8 +8,8 @@ public class DayCange : MonoBehaviour {
      * 日付の更新
      */
 
-    public int day;
-    public int score;
+    public GameObject gameManagement;
+    private float timer;
     
     
     // Use this for initialization
@@ -19,6 +19,7 @@ public class DayCange : MonoBehaviour {
         SceneManager.sceneLoaded += SceneLoaded;
         // シーンの読み込み
         SceneManager.LoadScene("Main");
+        timer = 0;
     }
 
     // イベントハンドラー（イベント発生時に動かしたい処理）
@@ -27,15 +28,21 @@ public class DayCange : MonoBehaviour {
         Debug.Log(nextScene.name);
         Debug.Log(mode);
 
-        day += 1;
-        PlayerPrefs.SetInt("Score", score);
-        PlayerPrefs.SetInt("Day", day);
+        gameManagement.GetComponent<GameManagement>().day += 1;
+        PlayerPrefs.SetInt("Score", gameManagement.GetComponent<GameManagement>().day);
+        PlayerPrefs.SetInt("Day", gameManagement.GetComponent<GameManagement>().score);
         PlayerPrefs.Save();
     }
 
     // Update is called once per frame
     void Update () {
-		
+        timer += Time.deltaTime;
+        if(timer > 5)
+        {
+            SceneManager.LoadScene("Main");
+
+        }
+
 	}
 
 

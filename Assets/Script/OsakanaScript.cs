@@ -19,12 +19,12 @@ public class OsakanaScript : MonoBehaviour {
     public GameObject osakana;
     public GameObject gameManagement;
     public GameObject uni;
-    public Vector2 muki;
+    public float muki;
+    private float kakudo;
     public int speed;
     private float initiateposx;
     private float initiateposy;
     private int frame;
-    private int frame2;
     private float t;
 
 
@@ -33,24 +33,21 @@ public class OsakanaScript : MonoBehaviour {
     void Start () {
         initiateposx = this.gameObject.transform.position.x;
         initiateposy = this.gameObject.transform.position.y;
-        frame = 0;
-        frame2 = 0;
         t = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-       frame++;
         t += Time.deltaTime;
 
        if(frame <= 6/Time.deltaTime)
         {
-            frame2++;
             OsakanaMoov();
         }
         else if(frame > 6/Time.deltaTime)//突撃
         {
             OsakanaRush();
+            
         }
 	}
     private void OnCollisionEnter2D(Collision2D collision)
@@ -75,34 +72,78 @@ public class OsakanaScript : MonoBehaviour {
 
     void OsakanaMoov()
     {
-        //if (initiateposy > 0)//左を向いてるとき
-        //{
-            if (frame2 <= 2/Time.deltaTime)//2秒左に動く
-            {
-            transform.position -= new Vector3(0.02f, 0,0);
 
-            Debug.Log("最初の左");
+        muki = Mathf.Sign(Mathf.Sin(Time.deltaTime * speed));
+        if (muki > 0)
+        {
+            transform.position += new Vector3(0.02f, 0,0);
+            //右向きの絵
         }
-        else if(frame2 > 2/Time.deltaTime )
-            {
-            Debug.Log("次の右");
-                //transform.Rotate(new Vector2(0, 360);
-                transform.position += new Vector3(0.02f, 0, 0);
-            frame2 = 0;
-            }
+        else
+        {
+            transform.position -= new Vector3(0.02f, 0,0);
+            //左向きの絵
+        }
 
-        //}
-        //else//右を向いているとき
-        //{
 
+        
+
+        ////if (initiateposy > 0)//左を向いてるとき
+        ////{
+        //    if (frame2 <= 2/Time.deltaTime)//2秒左に動く
+        //    {
+        //    transform.position -= new Vector3(0.02f, 0,0);
+
+        //    Debug.Log("最初の左");
         //}
+        //else if(frame2 > 2/Time.deltaTime )
+        //    {
+        //    Debug.Log("次の右");
+        //        //transform.Rotate(new Vector2(0, 360);
+        //        transform.position += new Vector3(0.02f, 0, 0);
+        //    frame2 = 0;
+        //    }
     }
 
 
 
     void OsakanaRush()
     {
-        transform.position = Vector3.MoveTowards(transform.position, new Vector2(-0.25f,0.8f), speed * Time.deltaTime);
+
+        transform.position = Vector3.MoveTowards(transform.position, new Vector2(-0.25f,0.8f), speed * Time.deltaTime);//真ん中に向かう
+
+        float dx = uni.transform.position.x - uni.transform.position.x;
+        float dy = osakana.transform.position.y - osakana.transform.position.x;
+        float rad = Mathf.Atan2(dy, dx);
+
+        if (transform.position.x <= 0.25f && transform.position.y >= 0.8f)//画面左上
+        {
+           // transform.Rotate(rad);//
+            //右向きの絵
+
+        }else if(transform.position.x < 0.25f && transform.position.y < 0.8f)//左下
+        {
+
+            //右向きの絵
+
+        }else if(transform.position.x > 0.25f && transform.position.y > 0.8f)//右上
+        {
+            //左向きの絵
+
+        }
+        else
+        {
+
+            //左向きの絵
+
+        }
+        // p2からp1への角度を求める
+        // @param p1 自分の座標
+        // @param p2 相手の座標
+        // @return 2点の角度(Degree)
+
+
+
 
     }
 }

@@ -243,8 +243,8 @@ MonoBehaviour:
   osakana: {fileID: 1701237324131252}
   gameManagement: {fileID: 1219017739127302, guid: e7d7330281daf2746b19d0a004101296,
     type: 2}
-  uni: {fileID: 1381486368229860, guid: 296366b2d15a61b4398140e4e16ef20a, type: 2}
-  muki: {x: 0, y: 0}
+  uni: {fileID: 1138508638262448, guid: 296366b2d15a61b4398140e4e16ef20a, type: 2}
+  muki: NaN
   speed: 0
 --- !u!212 &212757110718498462
 SpriteRenderer:

@@ -37,9 +37,9 @@ public class GameManagement : MonoBehaviour {
         t += Time.deltaTime;
         scoreLabel.text = "Score:" + score.ToString();
         dayLabel.text = "Day" + day.ToString();
-        Debug.Log(t);
+        
 
-        if (t > 10.0f && uni.GetComponent<UniScript>().uniHP > 0)
+        if (t > 60.0f && uni.GetComponent<UniScript>().uniHP > 0)
         {
             SceneManager.LoadScene("DayChange");
         }
