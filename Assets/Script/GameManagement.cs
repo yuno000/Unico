@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /*日にちの管理
+ * クリア
  * スコアの管理
  *セーブとロード 
  * 魚のランダム生成

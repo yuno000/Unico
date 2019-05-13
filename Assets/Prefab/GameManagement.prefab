@@ -51,7 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab2e4f1a7fbd84189aa91adf0b2a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayLabel: {fileID: 0}
+  dayLabel: {fileID: 114376075614416286, guid: 5a83b4ca0648e0249bb2829f83d6da72, type: 2}
   day: 0
-  score: 0
-  scoreLabel: {fileID: 0}
+  score: 2000
+  scoreLabel: {fileID: 114349001879863244, guid: e584a58fdf51885499b53bcf8f423f0b,
+    type: 2}
+  uni: {fileID: 1138508638262448, guid: 296366b2d15a61b4398140e4e16ef20a, type: 2}

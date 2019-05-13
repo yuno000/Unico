@@ -24,7 +24,6 @@ public class OsakanaScript : MonoBehaviour {
     public int speed;
     private float initiateposx;
     private float initiateposy;
-    private int frame;
     private float t;
 
 
@@ -40,11 +39,11 @@ public class OsakanaScript : MonoBehaviour {
 	void Update () {
         t += Time.deltaTime;
 
-       if(frame <= 6/Time.deltaTime)
+       if(t <= 6)
         {
             OsakanaMoov();
         }
-        else if(frame > 6/Time.deltaTime)//突撃
+        else if(t > 6)//突撃
         {
             OsakanaRush();
             
@@ -72,10 +71,10 @@ public class OsakanaScript : MonoBehaviour {
 
     void OsakanaMoov()
     {
-
         muki = Mathf.Sign(Mathf.Sin(Time.deltaTime * speed));
         if (muki > 0)
         {
+            
             transform.position += new Vector3(0.02f, 0,0);
             //右向きの絵
         }
@@ -109,6 +108,7 @@ public class OsakanaScript : MonoBehaviour {
 
     void OsakanaRush()
     {
+        speed = 5;
 
         transform.position = Vector3.MoveTowards(transform.position, new Vector2(-0.25f,0.8f), speed * Time.deltaTime);//真ん中に向かう
 

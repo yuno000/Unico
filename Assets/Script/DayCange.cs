@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DayCange : MonoBehaviour {
     /*次の日のロード
@@ -10,8 +11,10 @@ public class DayCange : MonoBehaviour {
 
     public GameObject gameManagement;
     private float timer;
-    
-    
+    public Text dayChangeLabel;
+    int day;
+
+
     // Use this for initialization
     void Start()
     {
@@ -20,6 +23,7 @@ public class DayCange : MonoBehaviour {
         // シーンの読み込み
         SceneManager.LoadScene("Main");
         timer = 0;
+        int day = gameManagement.GetComponent<GameManagement>().day;
     }
 
     // イベントハンドラー（イベント発生時に動かしたい処理）
@@ -37,6 +41,8 @@ public class DayCange : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         timer += Time.deltaTime;
+        dayChangeLabel.text = day +"→" + (day+1);
+
         if(timer > 5)
         {
             SceneManager.LoadScene("Main");
