@@ -17,23 +17,34 @@ public class OsakanaScript : MonoBehaviour {
     public int osakanaHP = 1;
     private int timer;
     public GameObject osakana;
+    //public GameObject osakanamigi;
     public GameObject gameManagement;
     public GameObject uni;
     public float muki;
-    private float kakudo;
-    public int speed;
+    private int speed;
     private float initiateposx;
     private float initiateposy;
     private float t;
+    private bool rotate;
+
+    [SerializeField]
+    GameObject _start;
+
+    [SerializeField]
+    GameObject _target;
+
 
 
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         initiateposx = this.gameObject.transform.position.x;
         initiateposy = this.gameObject.transform.position.y;
         t = 0;
-	}
+        rotate = false;
+    }
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -63,87 +74,97 @@ public class OsakanaScript : MonoBehaviour {
         osakanaHP--;
         if(osakanaHP <= 0)
         {
-            Destroy(osakana);
-            gameManagement.GetComponent<GameManagement>().score += 100;//sakanaを倒すとスコア+100 
+            Destroy(this.gameObject);
+            GameManagement.instance.score += 100;//sakanaを倒すとスコア+100
+            Debug.Log(GameManagement.instance.score);
 
         }
     }
 
     void OsakanaMoov()
     {
-        muki = Mathf.Sign(Mathf.Sin(Time.deltaTime * speed));
+        float T = 3.0f;
+        float f = 1.0f / T;
+        muki = Mathf.Sign(Mathf.Sin(2 * Mathf.PI * f * Time.time));//周期Tでー１と１を繰り返す
         if (muki > 0)
         {
-            
-            transform.position += new Vector3(0.02f, 0,0);
-            //右向きの絵
+            osakana.transform.position += new Vector3(0.02f, 0,0);
+            //osakanamigi.transform.position += new Vector3(0.02f,0,0);
+            //osakanamigi.gameObject.SetActive(false);//右向きの絵OFF
+            //osakana.gameObject.SetActive(true);//左向きの絵ON
         }
-        else
+        else if(muki <= 0)
         {
-            transform.position -= new Vector3(0.02f, 0,0);
-            //左向きの絵
+            osakana.transform.position -= new Vector3(0.02f, 0,0);
+            //osakanamigi.transform.position -= new Vector3(0.02f, 0, 0);
+            //osakanamigi.gameObject.SetActive(true);//右向けの絵ON
+            //sakana.gameObject.SetActive(false);//左向きの絵OFF
         }
 
-
-        
-
-        ////if (initiateposy > 0)//左を向いてるとき
-        ////{
-        //    if (frame2 <= 2/Time.deltaTime)//2秒左に動く
-        //    {
-        //    transform.position -= new Vector3(0.02f, 0,0);
-
-        //    Debug.Log("最初の左");
-        //}
-        //else if(frame2 > 2/Time.deltaTime )
-        //    {
-        //    Debug.Log("次の右");
-        //        //transform.Rotate(new Vector2(0, 360);
-        //        transform.position += new Vector3(0.02f, 0, 0);
-        //    frame2 = 0;
-        //    }
     }
 
 
 
     void OsakanaRush()
     {
-        speed = 5;
+        speed = 3;
+        float angle = GetAngle(_start.transform.position, _target.transform.position);//角度の取得
+        Debug.Log(angle);
 
         transform.position = Vector3.MoveTowards(transform.position, new Vector2(-0.25f,0.8f), speed * Time.deltaTime);//真ん中に向かう
 
-        float dx = uni.transform.position.x - uni.transform.position.x;
-        float dy = osakana.transform.position.y - osakana.transform.position.x;
-        float rad = Mathf.Atan2(dy, dx);
+        //float dx = uni.transform.position.x - uni.transform.position.x;
+        //float dy = osakana.transform.position.y - osakana.transform.position.x;
+        //float rad = Mathf.Atan2(dy, dx);
 
-        if (transform.position.x <= 0.25f && transform.position.y >= 0.8f)//画面左上
+        if (transform.position.x <= -0.25f && transform.position.y >= 0.8f)//画面左上
         {
-           // transform.Rotate(rad);//
+            if (rotate == false)
+            {
+                transform.Rotate(new Vector3(0, 0, angle - 180));
+                rotate = true;
+            }
             //右向きの絵
 
-        }else if(transform.position.x < 0.25f && transform.position.y < 0.8f)//左下
+        }else if(transform.position.x < -0.25f && transform.position.y < 0.8f)//左下
         {
-
+            if (rotate == false)
+            {
+                transform.Rotate(new Vector3(0, 0, 180 + angle));
+                rotate = true;
+            }
             //右向きの絵
 
-        }else if(transform.position.x > 0.25f && transform.position.y > 0.8f)//右上
+        }else if(transform.position.x > -0.25f && transform.position.y > 0.8f)//右上
         {
+            if (rotate == false)
+            {
+                transform.Rotate(new Vector3(0, 0, angle));
+                rotate = true;
+            }
             //左向きの絵
 
         }
-        else
+        else if(transform.position.x > -0.25f && transform.position.y < 0.8f)//右下
         {
-
+            if (rotate == false)
+            {
+                transform.Rotate(new Vector3(0, 0, angle));
+                rotate = true;
+            }
             //左向きの絵
 
         }
-        // p2からp1への角度を求める
-        // @param p1 自分の座標
-        // @param p2 相手の座標
-        // @return 2点の角度(Degree)
 
 
+    }
 
+    float GetAngle(Vector2 start, Vector2 target)
+    {
+        Vector2 dt = target - start;
+        float rad = Mathf.Atan2(dt.y, dt.x);
+        float degree = rad * Mathf.Rad2Deg;
 
+        return degree;
     }
 }

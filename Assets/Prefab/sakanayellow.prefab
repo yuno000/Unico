@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1701237324131252}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -297.176, y: -164.5, z: 0}
+  m_LocalPosition: {x: -0.6560154, y: 1.961568, z: 0.005067235}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -241,11 +241,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   osakanaHP: 1
   osakana: {fileID: 1701237324131252}
+  osakanamigi: {fileID: 1441460573022062, guid: b9fe28c0c61e34c4cb636b0e02bcd1fe,
+    type: 2}
   gameManagement: {fileID: 1219017739127302, guid: e7d7330281daf2746b19d0a004101296,
     type: 2}
   uni: {fileID: 1138508638262448, guid: 296366b2d15a61b4398140e4e16ef20a, type: 2}
   muki: NaN
   speed: 0
+  _start: {fileID: 1138508638262448, guid: 296366b2d15a61b4398140e4e16ef20a, type: 2}
+  _target: {fileID: 1701237324131252}
 --- !u!212 &212757110718498462
 SpriteRenderer:
   m_ObjectHideFlags: 1

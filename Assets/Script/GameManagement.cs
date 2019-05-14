@@ -12,6 +12,7 @@ using UnityEngine.SceneManagement;
  */
 
 public class GameManagement : MonoBehaviour {
+    public static GameManagement instance;
     public Text dayLabel;
     public int  day;
     private float t;

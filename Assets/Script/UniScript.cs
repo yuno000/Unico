@@ -19,6 +19,7 @@ public class UniScript : MonoBehaviour {
     public Slider hpSlider;
     public PinnedTransformGesture transformGesture;
 
+
     private void OnEnable()
     {
         transformGesture.TransformStarted += OnTransformStarted;
