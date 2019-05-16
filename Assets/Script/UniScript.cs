@@ -8,50 +8,20 @@ using UnityEngine.SceneManagement;
 using TouchScript.Gestures.TransformGestures;
 
 
- /* うにの回転
-  * うにの体力
+ /* うにの体力
+  * ウニ子表情
   * ゲームオーバーシーンへの遷移
   */
 
 public class UniScript : MonoBehaviour {
     public int uniHP　= 5;
+    public Text uniHpLabel;
     int maxHP = 5;
     public Slider hpSlider;
-    public PinnedTransformGesture transformGesture;
-
-
-    private void OnEnable()
-    {
-        transformGesture.TransformStarted += OnTransformStarted;
-        transformGesture.Transformed += OnTransformed;
-        transformGesture.TransformCompleted += OnTransformCompleted;
-    }
-
-    private void OnDisable()
-    {
-        transformGesture.TransformStarted -= OnTransformStarted;
-        transformGesture.Transformed -= OnTransformed;
-        transformGesture.TransformCompleted -= OnTransformCompleted;
-    }
-
-    private void OnTransformStarted(object sender, EventArgs e)
-    {
-        Debug.Log("変形を開始した");
-    }
-
-    private void OnTransformed(object sender, EventArgs e)
-    {
-        var g = transformGesture;
-        var sb = new StringBuilder();
-        sb.AppendLine("変形中");
-        sb.AppendLine("DeltaRotation: " + g.DeltaRotation);
-        Debug.Log(sb);
-    }
-
-    private void OnTransformCompleted(object sender, EventArgs e)
-    {
-        Debug.Log("変形を完了した");
-    }
+    SpriteRenderer MainSpriteRenderer;
+    //// publicで宣言し、inspectorで設定可能にする
+    public Sprite staySprite;
+    public Sprite damageSprite;
 
 
 
@@ -59,12 +29,13 @@ public class UniScript : MonoBehaviour {
     void Start () {
         hpSlider.maxValue = maxHP;
         hpSlider.value = uniHP;
-		
-	}
+        MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        uniHpLabel.text = uniHP.ToString() + "/5";
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -72,13 +43,27 @@ public class UniScript : MonoBehaviour {
         if(uniHP > 0) {
             if (collision.gameObject.tag == ("Enemy"))
             {
+                Debug.Log(collision.gameObject.name);
                 uniHP--;
                 hpSlider.value--;
             }
         }
-        else
+        else if(uniHP == 0)
         {
             SceneManager.LoadScene("GameOver");
         }
+    }
+
+    void ChangeDamageToStay()
+    {
+        // SpriteRenderのspriteを設定済みの他のspriteに変更
+        MainSpriteRenderer.sprite = staySprite;
+
+    }
+
+    void ChangeStayToDamage()
+    {
+        // SpriteRenderのspriteを設定済みの他のspriteに変更
+        MainSpriteRenderer.sprite = damageSprite;
     }
 }

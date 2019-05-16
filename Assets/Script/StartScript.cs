@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class StartScript : MonoBehaviour {
+    public GameObject startEffect;
 
 	// Use this for initialization
 	void Start () {
@@ -19,5 +20,6 @@ public class StartScript : MonoBehaviour {
     public void StartButton()
     {
         SceneManager.LoadScene("Main");
+        Instantiate(startEffect, this.transform.position, Quaternion.identity);
     }
 }

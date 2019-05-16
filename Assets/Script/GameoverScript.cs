@@ -9,11 +9,10 @@ using UnityEngine.SceneManagement;
  */
 
 public class GameoverScript : MonoBehaviour {
-    public GameObject gameManagement;
 
 	// Use this for initialization
 	void Start () {
-        gameManagement.GetComponent<GameManagement>().day = 0;
+        GameManagement.day = 0;
 		
 	}
 	

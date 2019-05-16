@@ -5,18 +5,18 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /*日にちの管理
- * クリア
- * スコアの管理
- *セーブとロード 
+ *クリア
+ *★スコアの管理
+ *★セーブとロード 
  * 魚のランダム生成
  */
 
 public class GameManagement : MonoBehaviour {
     public static GameManagement instance;
     public Text dayLabel;
-    public int  day;
+    public static int  day;
     private float t;
-    public int score;
+    public static int score;
     public Text scoreLabel;
     private bool onetime;
     public GameObject uni;
