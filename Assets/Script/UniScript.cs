@@ -19,9 +19,9 @@ public class UniScript : MonoBehaviour {
     int maxHP = 5;
     public Slider hpSlider;
     SpriteRenderer MainSpriteRenderer;
-    //// publicで宣言し、inspectorで設定可能にする
-    public Sprite staySprite;
-    public Sprite damageSprite;
+    // publicで宣言し、inspectorで設定可能にする
+    //public Sprite staySprite;
+    //public Sprite damageSprite;
 
 
 
@@ -40,6 +40,7 @@ public class UniScript : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //ChangeStayToDamage();
         if(uniHP > 0) {
             if (collision.gameObject.tag == ("Enemy"))
             {
@@ -54,16 +55,16 @@ public class UniScript : MonoBehaviour {
         }
     }
 
-    void ChangeDamageToStay()
+   /* void ChangeDamageToStay()
     {
         // SpriteRenderのspriteを設定済みの他のspriteに変更
-        MainSpriteRenderer.sprite = staySprite;
+        //MainSpriteRenderer.sprite = staySprite;
 
     }
 
-    void ChangeStayToDamage()
+   // void ChangeStayToDamage()
     {
         // SpriteRenderのspriteを設定済みの他のspriteに変更
         MainSpriteRenderer.sprite = damageSprite;
-    }
+    }*/
 }

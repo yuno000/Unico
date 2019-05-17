@@ -31,7 +31,8 @@ public class OsakanaScript : MonoBehaviour {
     private int trand;
     private bool rotate;
     private bool one;
-
+    public AudioClip hit;
+    AudioSource audioSource;
 
     SpriteRenderer MainSpriteRenderer;
     //// publicで宣言し、inspectorで設定可能にする
@@ -57,6 +58,8 @@ public class OsakanaScript : MonoBehaviour {
         one = false;
         trand = Random.Range(6, 13);
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = hit;
 
     }
 
@@ -106,7 +109,7 @@ public class OsakanaScript : MonoBehaviour {
         if(osakanaHP <= 0)
         {
             Destroy(this.gameObject);
-
+            audioSource.Play();
             GameManagement.score += 100;//sakanaを倒すとスコア+100
 
         }

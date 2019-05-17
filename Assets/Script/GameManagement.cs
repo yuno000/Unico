@@ -15,6 +15,8 @@ public class GameManagement : MonoBehaviour {
     public static GameManagement instance;
     public Text dayLabel;
     public static int  day;
+    public static int bestday;
+    public static int bestsxore;
     private float t;
     public static int score;
     public Text scoreLabel;
@@ -52,6 +54,7 @@ public class GameManagement : MonoBehaviour {
 
     private void OnDestroy()
     {
+
         PlayerPrefs.SetInt("Score", score);
         PlayerPrefs.SetInt("Day", day);
         PlayerPrefs.Save();

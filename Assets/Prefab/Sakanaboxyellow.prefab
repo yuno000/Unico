@@ -101,13 +101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   osakanaHP: 1
   osakana: {fileID: 1381718753083886}
-  gameManagement: {fileID: 1219017739127302, guid: e7d7330281daf2746b19d0a004101296,
-    type: 2}
   uni: {fileID: 1138508638262448, guid: 296366b2d15a61b4398140e4e16ef20a, type: 2}
   effect: {fileID: 1247311384876784, guid: 4adffb0018aeda44e9263f901167af1f, type: 2}
   damageEffect: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 2}
   mukiSin: 0
   mukiCos: 0
+  hit: {fileID: 8300000, guid: 88f814a23c99f4849a8179d5aa91e389, type: 3}
   rightSprite: {fileID: 21300000, guid: 970344f958a95934183a6dea5f6a48c7, type: 3}
   leftSprite: {fileID: 21300000, guid: 49244a355cf987d408f7ae954191b911, type: 3}
   _start: {fileID: 1138508638262448, guid: 296366b2d15a61b4398140e4e16ef20a, type: 2}
