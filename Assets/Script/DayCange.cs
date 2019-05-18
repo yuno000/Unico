@@ -17,7 +17,7 @@ public class DayCange : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        int day = GameManagement.day;
+
     }
 
     // Update is called once per frame

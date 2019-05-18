@@ -25,8 +25,8 @@ public class OsakanaScript : MonoBehaviour {
     public float mukiSin;
     public float mukiCos;
     private int speed;
-    private float initiateposx;
-    private float initiateposy;
+    //private float initiateposx;
+    //private float initiateposy;
     private float t;
     private int trand;
     private bool rotate;
@@ -51,8 +51,8 @@ public class OsakanaScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        initiateposx = this.gameObject.transform.position.x;
-        initiateposy = this.gameObject.transform.position.y;
+        //initiateposx = this.gameObject.transform.position.x;
+        //initiateposy = this.gameObject.transform.position.y;
         t = 0;
         rotate = false;
         one = false;

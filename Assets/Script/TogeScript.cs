@@ -28,6 +28,8 @@ public class TogeScript : MonoBehaviour {
 
     private void OnTapped(object sender, EventArgs e)
     {
+
+        Debug.Log("タップされた");
         if (nobi == false)
         {
             Debug.Log("タップされた");
