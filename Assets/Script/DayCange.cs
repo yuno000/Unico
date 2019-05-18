@@ -18,23 +18,24 @@ public class DayCange : MonoBehaviour {
     void Start()
     {
 
+        dayChangeLabel.text = "Day" + GameManagement.day.ToString() + "→ Day" + (GameManagement.day + 1).ToString();
     }
 
     // Update is called once per frame
     void Update () {
         timer += Time.deltaTime;
-        dayChangeLabel.text = "Day" + GameManagement.day.ToString() + "→ Day" + (GameManagement.day+1).ToString();
         Debug.Log(GameManagement.day);
 
 	}
 
     public void OnNextButton()
     {
-        SceneManager.LoadScene("Main");
-
+        dayChangeLabel.text = "";
+        GameManagement.day += 1;
         PlayerPrefs.SetInt("Score", GameManagement.score);
         PlayerPrefs.SetInt("Day", GameManagement.day);
         PlayerPrefs.Save();
+        SceneManager.LoadScene("Main");
     }
 
 }

@@ -4372,6 +4372,7 @@ GameObject:
   - component: {fileID: 1905440776}
   - component: {fileID: 1905440775}
   - component: {fileID: 1905440774}
+  - component: {fileID: 1905440773}
   m_Layer: 0
   m_Name: Sphere5
   m_TagString: Untagged
@@ -4393,6 +4394,21 @@ Transform:
   m_Father: {fileID: 1838167411}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1905440773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1905440771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11261a7185a939f4ba2c9bfa4a14bd56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toge:
+  - {fileID: 1336451527}
+  tapGesture: {fileID: 1905440774}
+  frame: 0
 --- !u!114 &1905440774
 MonoBehaviour:
   m_ObjectHideFlags: 0
