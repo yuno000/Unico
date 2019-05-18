@@ -57,7 +57,7 @@ public class EnemyRandomGenerater : MonoBehaviour {
         Vector3 r = new Vector3(initiatePosx, initiatePosy, 0);//ランダムで出した生成位置
 
 
-        while ((r.x <= 2.5 && r.x >= -2.5 && r.y <= 2.5 && r.y >= 2.5) || (r.x <= 8 && r.x >= 4.8 && r.y <= 4.5f && r.y >= 3.0f))//生成しちゃダメな範囲なら繰り返す
+        while ((r.x <= 5 && r.x >= -5 && r.y <= 5 && r.y >= -5) || (r.x <= 8 && r.x >= 4.8f && r.y <= 4.5f && r.y >= 3.0f))//生成しちゃダメな範囲なら繰り返す
         {
             initiatePosx = Random.Range(-8.0f, 8.0f);//x位置を-8～8でランダムしなおす
             initiatePosy = Random.Range(-4.5f, 4.5f);//y位置を-4.5～4.5でランダムしなおす

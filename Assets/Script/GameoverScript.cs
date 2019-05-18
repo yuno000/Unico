@@ -12,18 +12,19 @@ using UnityEngine.UI;
 public class GameoverScript : MonoBehaviour {
     public GameObject retryEffect;
     public Text bestscoreText;
-	// Use this for initialization
-    
-	void Start () {
-       
+    // Use this for initialization
+
+    private void Awake()
+    {
+        PlayerPrefs.SetInt("BestDay", GameManagement.bestday);
         if (GameManagement.bestday > GameManagement.day)
         {
             GameManagement.bestday = GameManagement.day;
         }
+    }
 
-        PlayerPrefs.SetInt("BestDay", GameManagement.bestday);
+    void Start () {
         bestscoreText.text = "MaxDay:" + GameManagement.bestday;
-
         GameManagement.day = 1;
         GameManagement.score = 0;
     }
