@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590373560436318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.026, y: 3.737, z: 0}
+  m_LocalPosition: {x: 4.235, y: 3.737, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -86,7 +86,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.36}
+  m_Size: {x: 1.12, y: 0.36}
   m_EdgeRadius: 0
 --- !u!114 &114796430465317150
 MonoBehaviour:
@@ -106,7 +106,6 @@ MonoBehaviour:
   damageEffect: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 2}
   mukiSin: 0
   mukiCos: 0
-  hit: {fileID: 8300000, guid: 88f814a23c99f4849a8179d5aa91e389, type: 3}
   rightSprite: {fileID: 21300000, guid: 02270d2d8a92347448556f13a675915c, type: 3}
   leftSprite: {fileID: 21300000, guid: 1449a4b9e37d5984ca068c24f9dee35d, type: 3}
   _start: {fileID: 1138508638262448, guid: 296366b2d15a61b4398140e4e16ef20a, type: 2}

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
  *★スコアの管理
  *★セーブとロード 
  * 魚のランダム生成
+ * 音楽の再生
  */
 
 public class GameManagement : MonoBehaviour {
@@ -22,12 +23,18 @@ public class GameManagement : MonoBehaviour {
     public Text scoreLabel;
     private bool onetime;
     public GameObject uni;
+    //AudioSource audioSource;
+    //public AudioClip bgm1;
 
 
     
 
 	// Use this for initialization
 	void Start () {
+        //audioSource = gameObject.AddComponent<AudioSource>();
+        //audioSource.clip = bgm1;
+        //audioSource.Play();
+
         day = PlayerPrefs.GetInt("Day", day);
         if (day == 0)
         {

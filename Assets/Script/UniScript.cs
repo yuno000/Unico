@@ -47,6 +47,7 @@ public class UniScript : MonoBehaviour {
                 Debug.Log(collision.gameObject.name);
                 uniHP--;
                 hpSlider.value--;
+                Destroy(collision.gameObject);
             }
         }
         else if(uniHP == 0)

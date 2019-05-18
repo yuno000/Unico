@@ -25,17 +25,13 @@ public class OsakanaScript : MonoBehaviour {
     public float mukiSin;
     public float mukiCos;
     private int speed;
-    //private float initiateposx;
-    //private float initiateposy;
     private float t;
     private int trand;
     private bool rotate;
     private bool one;
-    public AudioClip hit;
-    AudioSource audioSource;
 
     SpriteRenderer MainSpriteRenderer;
-    //// publicで宣言し、inspectorで設定可能にする
+    // publicで宣言し、inspectorで設定可能にする
     public Sprite rightSprite;
     public Sprite leftSprite;
 
@@ -51,15 +47,11 @@ public class OsakanaScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        //initiateposx = this.gameObject.transform.position.x;
-        //initiateposy = this.gameObject.transform.position.y;
         t = 0;
         rotate = false;
         one = false;
         trand = Random.Range(6, 13);
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.clip = hit;
 
     }
 
@@ -109,7 +101,6 @@ public class OsakanaScript : MonoBehaviour {
         if(osakanaHP <= 0)
         {
             Destroy(this.gameObject);
-            audioSource.Play();
             GameManagement.score += 100;//sakanaを倒すとスコア+100
 
         }
