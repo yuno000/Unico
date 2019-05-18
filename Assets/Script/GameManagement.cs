@@ -23,19 +23,12 @@ public class GameManagement : MonoBehaviour {
     public Text scoreLabel;
     private bool onetime;
     public GameObject uni;
-    //AudioSource audioSource;
-    //public AudioClip bgm1;
-
 
     
 
 	// Use this for initialization
 	void Start () {
-        //audioSource = gameObject.AddComponent<AudioSource>();
-        //audioSource.clip = bgm1;
-        //audioSource.Play();
-
-        day = PlayerPrefs.GetInt("Day", day);
+        day = PlayerPrefs.GetInt("Day", GameManagement.day);
         if (day == 0)
         {
             day = 1;
