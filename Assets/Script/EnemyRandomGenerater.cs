@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyRandomGenerater : MonoBehaviour {
 
-    /*★敵のランダム生成
+    /*敵のランダム生成
      * ・位置
      * ・ゲームオブジェクトの種類
      * ・時間
      * ・向き（左右）
+     *★魚の色が最初赤い
+     *★うにこのとげと円の大きさに合わせて範囲を決めるようにする
      */
 
 

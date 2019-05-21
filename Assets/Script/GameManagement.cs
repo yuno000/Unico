@@ -22,18 +22,26 @@ public class GameManagement : MonoBehaviour {
     public static int score;
     public Text scoreLabel;
     private bool onetime;
-    public GameObject uni;
+    public GameObject unicir;
+    public GameObject uniall;
 
-    
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start()
+    {
         day = PlayerPrefs.GetInt("Day", GameManagement.day);
+        score = PlayerPrefs.GetInt("Day", GameManagement.score);
         if (day == 0)
         {
             day = 1;
             t = 0;
         }
+        if (day % 10 == 0)
+        {
+            uniall.gameObject.transform.localScale *= (day / 10);
+        }
+        
     }
 	
 	// Update is called once per frame
@@ -43,7 +51,7 @@ public class GameManagement : MonoBehaviour {
         dayLabel.text = "Day" + day.ToString();
         
 
-        if (t > 60.0f && uni.GetComponent<UniScript>().uniHP > 0)
+        if (t > 60.0f && unicir.GetComponent<UniScript>().uniHP > 0)
         {
             SceneManager.LoadScene("DayChange");
         }

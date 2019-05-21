@@ -149,7 +149,7 @@ public class OsakanaScript : MonoBehaviour {
 
     void OsakanaRush()
     {
-        speed = 1;
+        speed = 1+GameManagement.day;
         float angle = GetAngle(_start.transform.position, _target.transform.position);//角度の取得
 
         transform.position = Vector3.MoveTowards(transform.position, new Vector2(0.0f,0.0f), speed * Time.deltaTime);//真ん中に向かう

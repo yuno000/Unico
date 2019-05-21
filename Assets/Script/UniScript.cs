@@ -9,7 +9,7 @@ using TouchScript.Gestures.TransformGestures;
 
 
  /* うにの体力
-  * ウニ子表情
+  * ウニ子表情・・・SetActiveかRendererか
   * ゲームオーバーシーンへの遷移
   */
 
@@ -44,6 +44,7 @@ public class UniScript : MonoBehaviour {
         if(uniHP > 0) {
             if (collision.gameObject.tag == ("Enemy"))
             {
+                
                 Debug.Log(collision.gameObject.name);
                 uniHP--;
                 hpSlider.value--;
