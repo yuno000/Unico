@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
  *★スコアの管理
  *★セーブとロード 
  * 魚のランダム生成
- * 音楽の再生
+ * 秒数表示
  */
 
 public class GameManagement : MonoBehaviour {
@@ -21,6 +21,7 @@ public class GameManagement : MonoBehaviour {
     private float t;
     public static int score;
     public Text scoreLabel;
+    public Text timerLabel;
     private bool onetime;
     public GameObject unicir;
     public GameObject uniall;
@@ -32,10 +33,15 @@ public class GameManagement : MonoBehaviour {
     {
         day = PlayerPrefs.GetInt("Day", GameManagement.day);
         score = PlayerPrefs.GetInt("Day", GameManagement.score);
+        
         if (day == 0)
         {
             day = 1;
             t = 0;
+        }
+        if(score == 1)
+        {
+            score = 0;
         }
         if (day % 10 == 0)
         {
@@ -49,7 +55,8 @@ public class GameManagement : MonoBehaviour {
         t += Time.deltaTime;
         scoreLabel.text = "Score:" + score.ToString();
         dayLabel.text = "Day" + day.ToString();
-        
+        timerLabel.text = "to night:" + (60-t).ToString("f0");
+
 
         if (t > 60.0f && unicir.GetComponent<UniScript>().uniHP > 0)
         {
@@ -66,6 +73,7 @@ public class GameManagement : MonoBehaviour {
         PlayerPrefs.SetInt("Score", score);
         PlayerPrefs.SetInt("Day", day);
         PlayerPrefs.Save();
+
     }
 
 
