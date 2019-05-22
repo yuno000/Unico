@@ -25,6 +25,7 @@ public class StartScript : MonoBehaviour {
 
     public void StartButton()
     {
+        FeadOutScript.start = true;
         audioSource.Play();
         SceneManager.LoadScene("Main");
         Instantiate(startEffect, this.transform.position, Quaternion.identity);

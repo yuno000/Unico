@@ -54,8 +54,8 @@ public class EnemyRandomGenerater : MonoBehaviour {
         timer = interval;
         randomKind = Random.Range(0, 3);//種類を０～2でランダムしなおす
 
-        initiatePosx = Random.Range(-8.25f, 7.75f);//x位置を-8.25～7.75でランダムしなおす
-        initiatePosy = Random.Range(-3.7f, 5.3f);//y位置を-3.7～5.3でランダムしなおす
+        initiatePosx = Random.Range(-9, 9);//x位置を-8～8でランダムしなおす
+        initiatePosy = Random.Range(-4.9f, 4.1f);//y位置を-4.9～4.1でランダムしなおす
         Vector3 r = new Vector3(initiatePosx, initiatePosy, 0);//ランダムで出した生成位置
 
 

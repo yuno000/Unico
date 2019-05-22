@@ -23,6 +23,8 @@ public class UniScript : MonoBehaviour {
     SpriteRenderer MainSpriteRenderer;
     private float unicotimer;
     private bool unicodamage;
+    public AudioClip damageSound;
+    AudioSource audioSource;
     // publicで宣言し、inspectorで設定可能にする
     //public Sprite staySprite;
     //public Sprite damageSprite;
@@ -37,6 +39,9 @@ public class UniScript : MonoBehaviour {
         unicodamage = false;
         script = unico.GetComponent<ChangeunicoScript>();
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = damageSound;
+        
 
     }
 	
@@ -48,13 +53,19 @@ public class UniScript : MonoBehaviour {
         {
             script.ChangeDamageToHold();
         }
-	}
+
+        if (uniHP == 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(uniHP > 0) {
             if (collision.gameObject.tag == ("Enemy"))
             {
+                audioSource.Play();
                 unicotimer = 0;
                 script.ChangeHoldToDamage();
                 unicodamage = true;
@@ -64,22 +75,6 @@ public class UniScript : MonoBehaviour {
                 Destroy(collision.gameObject);
             }
         }
-        else if(uniHP == 0)
-        {
-            SceneManager.LoadScene("GameOver");
-        }
     }
 
-   /* void ChangeDamageToStay()
-    {
-        // SpriteRenderのspriteを設定済みの他のspriteに変更
-        //MainSpriteRenderer.sprite = staySprite;
-
-    }
-
-   // void ChangeStayToDamage()
-    {
-        // SpriteRenderのspriteを設定済みの他のspriteに変更
-        MainSpriteRenderer.sprite = damageSprite;
-    }*/
 }

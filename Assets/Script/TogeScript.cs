@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using TouchScript.Gestures;
+using UnityEngine.UI;
 
 /*とげの伸び縮み
  *魚ととげが当たったら音が鳴る
@@ -15,6 +16,8 @@ public class TogeScript : MonoBehaviour
     public TapGesture tapGesture;
     public int frame;
     private bool nobi = false;
+    public AudioClip nobiSound;
+    AudioSource audioSource;
 
 
     //タップされると伸びる
@@ -33,6 +36,7 @@ public class TogeScript : MonoBehaviour
     {
         if (nobi == false)
         {
+            audioSource.Play();
             toge[0].transform.localScale += new Vector3(0, 1.5f);
             nobi = true;
             frame = 0;
@@ -47,6 +51,8 @@ public class TogeScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = nobiSound;
     }
 
     // Update is called once per frame
