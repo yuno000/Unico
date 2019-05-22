@@ -17,13 +17,18 @@ public class GameoverScript : MonoBehaviour {
 
     void Start () {
         one = false;
-        PlayerPrefs.SetInt("BestDay", GameManagement.bestday);
-        if (GameManagement.bestday > GameManagement.day)
+
+        PlayerPrefs.GetInt("BestDay", GameManagement.bestday);
+
+        if (GameManagement.bestday  < GameManagement.day)
         {
             GameManagement.bestday = GameManagement.day;
         }
 
-        bestscoreText.text = "MaxDay:" + GameManagement.bestday;
+        PlayerPrefs.SetInt("BestDay", GameManagement.bestday);
+        PlayerPrefs.Save();
+
+        bestscoreText.text = "Best:Day" + GameManagement.bestday;
 
     }
 	
@@ -33,6 +38,7 @@ public class GameoverScript : MonoBehaviour {
         {
             GameManagement.day = 1;
             GameManagement.score = 0;
+
             one = true;
         }
        

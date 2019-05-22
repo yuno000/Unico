@@ -32,8 +32,9 @@ public class GameManagement : MonoBehaviour {
     void Start()
     {
         day = PlayerPrefs.GetInt("Day", GameManagement.day);
-        score = PlayerPrefs.GetInt("Day", GameManagement.score);
-        
+        score = PlayerPrefs.GetInt("Score", GameManagement.score);
+        bestday =  PlayerPrefs.GetInt("BestDay", GameManagement.bestday);
+
         if (day == 0)
         {
             day = 1;
@@ -45,7 +46,7 @@ public class GameManagement : MonoBehaviour {
         }
         if (day % 10 == 0)
         {
-            uniall.gameObject.transform.localScale *= (day / 10);
+            uniall.gameObject.transform.localScale *= (1 + (day / 500));
         }
         
     }

@@ -22,6 +22,5 @@ public class FeadInScript : MonoBehaviour {
     {
         GetComponent<Image>().color = new Color(red, green, blue, alfa);
         alfa -= speed;
-        Debug.Log(alfa);
     }
 }

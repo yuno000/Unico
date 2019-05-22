@@ -60,7 +60,8 @@ public class OsakanaScript : MonoBehaviour {
 	void Update () {
         t += Time.deltaTime;
 
-       if(t <= trand)
+        Debug.Log(speed);
+        if (t <= trand)
         {
             if (one == false)
             {
@@ -84,7 +85,6 @@ public class OsakanaScript : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "toge")
         {
             Damageosakana();
