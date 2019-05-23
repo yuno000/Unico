@@ -48,7 +48,7 @@ public class GameManagement : MonoBehaviour {
         }
         if (day % 10 == 0)
         {
-            uniall.gameObject.transform.localScale *= (1 + (day / 100));
+            uniall.gameObject.transform.localScale *= (1 + (day*0.01f));
         }
         
     }
