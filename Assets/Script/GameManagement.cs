@@ -17,7 +17,7 @@ public class GameManagement : MonoBehaviour {
     public Text dayLabel;
     public static int  day;
     public static int bestday;
-    public static int bestsxore;
+    public static int bestscore;
     private float t;
     public static int score;
     public Text scoreLabel;
@@ -34,6 +34,8 @@ public class GameManagement : MonoBehaviour {
         day = PlayerPrefs.GetInt("Day", GameManagement.day);
         score = PlayerPrefs.GetInt("Score", GameManagement.score);
         bestday =  PlayerPrefs.GetInt("BestDay", GameManagement.bestday);
+        bestscore = PlayerPrefs.GetInt("BestScore", GameManagement.bestscore);
+
 
         if (day == 0)
         {
@@ -46,7 +48,7 @@ public class GameManagement : MonoBehaviour {
         }
         if (day % 10 == 0)
         {
-            uniall.gameObject.transform.localScale *= (1 + (day / 500));
+            uniall.gameObject.transform.localScale *= (1 + (day / 100));
         }
         
     }

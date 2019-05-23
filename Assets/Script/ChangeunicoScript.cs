@@ -12,6 +12,10 @@ public class ChangeunicoScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        if (GameManagement.day % 10 == 0)
+        {
+            MainSpriteRenderer.gameObject.transform.localScale *= (1 + (GameManagement.day / 100));
+        }
     }
 	
 	// Update is called once per frame

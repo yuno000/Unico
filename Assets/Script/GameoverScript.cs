@@ -11,7 +11,8 @@ using UnityEngine.UI;
 
 public class GameoverScript : MonoBehaviour {
     public GameObject retryEffect;
-    public Text bestscoreText;
+    public Text bestdayLabel;
+    public Text bestscoreLabel;
     private bool one;
     // Use this for initialization
 
@@ -19,16 +20,23 @@ public class GameoverScript : MonoBehaviour {
         one = false;
 
         PlayerPrefs.GetInt("BestDay", GameManagement.bestday);
+        PlayerPrefs.GetInt("BestScore", GameManagement.bestscore);
 
         if (GameManagement.bestday  < GameManagement.day)
         {
             GameManagement.bestday = GameManagement.day;
         }
+        if (GameManagement.bestscore < GameManagement.score)
+        {
+            GameManagement.bestscore = GameManagement.score;
+        }
 
         PlayerPrefs.SetInt("BestDay", GameManagement.bestday);
+        PlayerPrefs.SetInt("BestScore", GameManagement.bestscore);
         PlayerPrefs.Save();
 
-        bestscoreText.text = "Best:Day" + GameManagement.bestday;
+        bestdayLabel.text = "BestDay:  Day" + GameManagement.bestday;
+        bestscoreLabel.text = "BestScore:" + GameManagement.bestscore;
 
     }
 	

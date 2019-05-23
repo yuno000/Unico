@@ -15,7 +15,7 @@ public class TogeScript : MonoBehaviour
     public GameObject[] toge;
     public TapGesture tapGesture;
     public int frame;
-    private bool nobi = false;
+    public bool nobi = false;
     public AudioClip nobiSound;
     AudioSource audioSource;
 
@@ -23,7 +23,7 @@ public class TogeScript : MonoBehaviour
     //タップされると伸びる
     private void OnEnable()
     {
-
+       // toge[0].GetComponent<Nobi>().nobi = true;
         tapGesture.Tapped += OnTapped;
     }
 
@@ -37,8 +37,9 @@ public class TogeScript : MonoBehaviour
         if (nobi == false)
         {
             audioSource.Play();
-            toge[0].transform.localScale += new Vector3(0, 1.5f);
+            toge[0].transform.localScale += new Vector3(0, 2.0f);
             nobi = true;
+            Nobi.nobi = nobi;
             frame = 0;
         }
 
@@ -53,6 +54,7 @@ public class TogeScript : MonoBehaviour
     {
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = nobiSound;
+         Nobi.nobi = nobi;
     }
 
     // Update is called once per frame
@@ -62,8 +64,9 @@ public class TogeScript : MonoBehaviour
         frame++;
         if (frame > 0.5 / Time.deltaTime && nobi == true)//とげの伸びが戻る
         {
-            toge[0].transform.localScale -= new Vector3(0, 1.5f);
+            toge[0].transform.localScale -= new Vector3(0, 2.0f);
             nobi = false;
+            Nobi.nobi = nobi;
         }
 
     }

@@ -24,7 +24,7 @@ public class OsakanaScript : MonoBehaviour {
     private int mukirand;
     public float mukiSin;
     public float mukiCos;
-    private int speed;
+    private float speed;
     private float t;
     private int trand;
     private bool rotate;
@@ -40,6 +40,8 @@ public class OsakanaScript : MonoBehaviour {
 
     [SerializeField]
     GameObject _target;
+
+    bool isNobi;
 
 
 
@@ -85,8 +87,11 @@ public class OsakanaScript : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "toge")
         {
+            //isNobi = collision.gameObject.GetComponent<TogeScript>().nobi;
             Damageosakana();
             Instantiate(effect, this.transform.position, Quaternion.identity);
         }else if(collision.gameObject.name == "Circle")
@@ -100,9 +105,16 @@ public class OsakanaScript : MonoBehaviour {
         osakanaHP--;
         if(osakanaHP <= 0)
         {
-            Destroy(this.gameObject);
-            GameManagement.score += 100;//sakanaを倒すとスコア+100
+            if (Nobi.nobi == true)
+            {
+                GameManagement.score += 100;//sakanaを倒すとスコア+100
+            }
+            else
+            {
+                GameManagement.score += 50;
+            }
 
+            Destroy(this.gameObject);
         }
     }
 
@@ -149,7 +161,7 @@ public class OsakanaScript : MonoBehaviour {
 
     void OsakanaRush()
     {
-        speed = 1+GameManagement.day;
+        speed = 1+(GameManagement.day)*0.2f;
         float angle = GetAngle(_start.transform.position, _target.transform.position);//角度の取得
 
         transform.position = Vector3.MoveTowards(transform.position, new Vector2(0.0f,0.0f), speed * Time.deltaTime);//真ん中に向かう
